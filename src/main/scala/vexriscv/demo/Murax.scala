@@ -10,7 +10,6 @@ import spinal.lib.com.spi.ddr.SpiXdrMaster
 import spinal.lib.com.uart._
 import spinal.lib.io.{InOutWrapper, TriStateArray}
 import spinal.lib.misc.{InterruptCtrl, Prescaler, Timer}
-import spinal.lib.soc.pinsec.{PinsecTimerCtrl, PinsecTimerCtrlExternal}
 import vexriscv.plugin._
 import vexriscv.{VexRiscv, VexRiscvConfig, plugin}
 import spinal.lib.com.spi.ddr._
@@ -73,41 +72,43 @@ object MuraxConfig{
         resetVector = if(withXip) 0xF001E000l else 0x80000000l,
         cmdForkOnSecondStage = true,
         cmdForkPersistence = withXip, //Required by the Xip controller
-        prediction = NONE,
+        relaxedPcCalculation = false,
+        prediction = STATIC,
         catchAccessFault = false,
         compressedGen = false
       ),
       new DBusSimplePlugin(
         catchAddressMisaligned = false,
-        catchAccessFault = false,
-        earlyInjection = false
+        catchAccessFault = false
       ),
       new CsrPlugin(CsrPluginConfig.smallest(mtvecInit = if(withXip) 0xE0040020l else 0x80000020l)),
       new DecoderSimplePlugin(
-        catchIllegalInstruction = false
+        catchIllegalInstruction = true
       ),
       new RegFilePlugin(
         regFileReadyKind = plugin.SYNC,
-        zeroBoot = false
+        zeroBoot = true
       ),
       new IntAluPlugin,
       new SrcPlugin(
         separatedAddSub = false,
-        executeInsertion = false
+        executeInsertion = true
       ),
       new LightShifterPlugin,
       new HazardSimplePlugin(
-        bypassExecute = false,
-        bypassMemory = false,
-        bypassWriteBack = false,
-        bypassWriteBackBuffer = false,
-        pessimisticUseSrc = false,
+        bypassExecute           = true,
+        bypassMemory            = true,
+        bypassWriteBack         = true,
+        bypassWriteBackBuffer   = true,
+        pessimisticUseSrc       = false,
         pessimisticWriteRegFile = false,
         pessimisticAddressMatch = false
       ),
+      new MulPlugin,
+      new DivPlugin,
       new BranchPlugin(
         earlyBranch = false,
-        catchAddressMisaligned = false
+        catchAddressMisaligned = true
       ),
       new YamlPlugin("cpu0.yaml")
     ),
