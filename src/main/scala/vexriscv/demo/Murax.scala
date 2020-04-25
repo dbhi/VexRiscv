@@ -523,6 +523,6 @@ object MuraxDhrystoneReadyMulDivStatic{
 //Will blink led and echo UART RX to UART TX   (in the verilator sim, type some text and press enter to send UART frame to the Murax RX pin)
 object MuraxWithRamInit{
   def main(args: Array[String]) {
-    SpinalVhdl(Murax(MuraxConfig.default.copy(onChipRamSize = 4 kB, onChipRamHexFile = "src/main/ressource/hex/muraxDemo.hex")))
+    SpinalVhdl(Murax(MuraxConfig.default.copy(onChipRamSize = 4 kB, onChipRamHexFile = "/src/soft/murax/demo/build/demo.hex")))
   }
 }
