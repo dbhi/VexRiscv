@@ -86,5 +86,5 @@ object GenFullNoMmuMaxPerf extends App{
     )
   )
 
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

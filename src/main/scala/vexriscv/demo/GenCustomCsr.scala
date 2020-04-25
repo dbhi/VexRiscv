@@ -58,5 +58,5 @@ object GenCustomCsr extends App{
       )
     )
   )
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

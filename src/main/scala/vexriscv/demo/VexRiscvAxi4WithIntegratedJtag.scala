@@ -20,7 +20,7 @@ import vexriscv.{VexRiscv, VexRiscvConfig, plugin}
 
 object VexRiscvAxi4WithIntegratedJtag{
   def main(args: Array[String]) {
-    val report = SpinalVerilog{
+    val report = SpinalVhdl{
 
       //CPU configuration
       val cpuConfig = VexRiscvConfig(

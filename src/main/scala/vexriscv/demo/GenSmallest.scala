@@ -55,5 +55,5 @@ object GenSmallest extends App{
     )
   )
 
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

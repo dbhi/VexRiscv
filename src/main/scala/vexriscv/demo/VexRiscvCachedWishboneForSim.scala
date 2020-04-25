@@ -19,7 +19,7 @@ import vexriscv.{VexRiscv, VexRiscvConfig, plugin}
 // make clean run DBUS=CACHED_WISHBONE IBUS=CACHED_WISHBONE MMU=no CSR=no DEBUG_PLUGIN=no
 object VexRiscvCachedWishboneForSim{
   def main(args: Array[String]) {
-    val report = SpinalVerilog{
+    val report = SpinalVhdl{
 
       //CPU configuration
       val cpuConfig = VexRiscvConfig(

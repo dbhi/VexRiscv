@@ -60,5 +60,5 @@ object GenSmallestNoCsr extends App{
       )
     )
   )
-  SpinalConfig(mergeAsyncProcess = false).generateVerilog(cpu())
+  SpinalConfig(mergeAsyncProcess = false).generateVhdl(cpu())
 }

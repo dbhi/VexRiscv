@@ -54,5 +54,5 @@ object GenCustomSimdAdd extends App{
       )
     )
   )
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

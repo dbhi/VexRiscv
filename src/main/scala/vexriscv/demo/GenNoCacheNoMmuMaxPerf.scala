@@ -64,5 +64,5 @@ object GenNoCacheNoMmuMaxPerf extends App{
     )
   )
 
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

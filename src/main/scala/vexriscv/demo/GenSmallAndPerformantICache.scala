@@ -68,5 +68,5 @@ object GenSmallAndProductiveICache extends App{
     )
   )
 
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

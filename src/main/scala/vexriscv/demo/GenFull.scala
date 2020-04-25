@@ -89,5 +89,5 @@ object GenFull extends App{
     )
   )
 
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

@@ -59,5 +59,5 @@ object GenFullNoMmuNoCache extends App{
     )
   )
 
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

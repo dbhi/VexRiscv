@@ -85,5 +85,5 @@ object GenFullNoMmu extends App{
     )
   )
 
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

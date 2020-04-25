@@ -339,7 +339,7 @@ case class Murax(config : MuraxConfig) extends Component{
 
 object Murax{
   def main(args: Array[String]) {
-    SpinalVerilog(Murax(MuraxConfig.default))
+    SpinalVhdl(Murax(MuraxConfig.default))
   }
 }
 
@@ -490,13 +490,13 @@ object Murax_iCE40_hx8k_breakout_board_xip{
 
 object MuraxDhrystoneReady{
   def main(args: Array[String]) {
-    SpinalVerilog(Murax(MuraxConfig.fast.copy(onChipRamSize = 256 kB)))
+    SpinalVhdl(Murax(MuraxConfig.fast.copy(onChipRamSize = 256 kB)))
   }
 }
 
 object MuraxDhrystoneReadyMulDivStatic{
   def main(args: Array[String]) {
-    SpinalVerilog({
+    SpinalVhdl({
       val config = MuraxConfig.fast.copy(onChipRamSize = 256 kB)
       config.cpuPlugins += new MulPlugin
       config.cpuPlugins += new DivPlugin
@@ -523,6 +523,6 @@ object MuraxDhrystoneReadyMulDivStatic{
 //Will blink led and echo UART RX to UART TX   (in the verilator sim, type some text and press enter to send UART frame to the Murax RX pin)
 object MuraxWithRamInit{
   def main(args: Array[String]) {
-    SpinalVerilog(Murax(MuraxConfig.default.copy(onChipRamSize = 4 kB, onChipRamHexFile = "src/main/ressource/hex/muraxDemo.hex")))
+    SpinalVhdl(Murax(MuraxConfig.default.copy(onChipRamSize = 4 kB, onChipRamHexFile = "src/main/ressource/hex/muraxDemo.hex")))
   }
 }

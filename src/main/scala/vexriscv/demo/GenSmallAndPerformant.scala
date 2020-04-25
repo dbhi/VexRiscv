@@ -55,5 +55,5 @@ object GenSmallAndProductive extends App{
     )
   )
 
-  SpinalVerilog(cpu())
+  SpinalVhdl(cpu())
 }

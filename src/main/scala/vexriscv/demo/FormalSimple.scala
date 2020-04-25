@@ -61,5 +61,5 @@ object FormalSimple extends App{
       resetKind = spinal.core.SYNC,
       resetActiveLevel = spinal.core.HIGH
     )
-  ).generateVerilog(cpu())
+  ).generateVhdl(cpu())
 }

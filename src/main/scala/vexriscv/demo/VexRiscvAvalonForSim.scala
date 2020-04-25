@@ -21,7 +21,7 @@ import spinal.lib.eda.altera.{ResetEmitterTag, InterruptReceiverTag, QSysify}
 
 object VexRiscvAvalonForSim{
   def main(args: Array[String]) {
-    val report = SpinalVerilog{
+    val report = SpinalVhdl{
 
       //CPU configuration
       val cpuConfig = VexRiscvConfig(
